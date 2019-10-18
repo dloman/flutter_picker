@@ -46,7 +46,7 @@ class PickerLocalizations {
       'cancelText': 'Annuler',
       'confirmText': 'Confirmer',
       'ampm': ['Matin', 'Après-midi'],
-    },    
+    },
   };
 
   static PickerLocalizations _static = const PickerLocalizations(null);
@@ -189,7 +189,7 @@ class Picker {
   }
 
   /// show dialog picker
-  void showDialog(BuildContext context) {
+  void showDialog(BuildContext context, Color backgroundColor) {
     Dialog.showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -226,6 +226,7 @@ class Picker {
           return AlertDialog(
             title: title,
             actions: actions,
+            backgroundColor: backgroundColor,
             content: makePicker(),
           );
         });
@@ -1087,7 +1088,7 @@ class DateTimePickerAdapter extends PickerAdapter<DateTime> {
     switch (colType) {
       case 0:
         if (twoDigitYear != null && twoDigitYear) {
-          _text = "${_yearBegin + index}";          
+          _text = "${_yearBegin + index}";
           _text = "${_text.substring(_text.length - (_text.length - 2), _text.length)}${_checkStr(yearSuffix)}";
         } else
           _text = "${_yearBegin + index}${_checkStr(yearSuffix)}";
